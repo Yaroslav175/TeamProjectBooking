@@ -8,5 +8,10 @@ namespace ClassLibrary.Interfaces
 {
    public class IRepository
     {
+
+
+
+
+
     }
 }

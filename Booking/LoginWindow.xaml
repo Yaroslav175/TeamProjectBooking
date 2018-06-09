@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Enter your credentials" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" FontSize="15"/>
+        <StackPanel Width="100" Orientation="Vertical" Grid.Row="2">
+            <Button Content="Login" Margin="10,5" Click="Button_Click"/>
+            <Button Content="Register" Margin="10,5" Click="ButtonRegister_Click"/>
+        </StackPanel>
+        <StackPanel Margin="200,10,200,5" Orientation="Vertical" Grid.Row="1">
+            <TextBlock  Text="Email" Name="textBlockEmail"  VerticalAlignment="Center"  FontSize="15" />
+            <TextBox Text="" Name="textBoxEmail" Margin="10,5" TextChanged="TextBox_TextChanged"/>
+            <TextBlock  Text="Password" Name="textBlockPassword"  VerticalAlignment="Center"  FontSize="15" />
+            <TextBox Text="" Name="textBoxPassword" Margin="10,5" TextChanged="TextBox_TextChanged_1" />
+        </StackPanel>
     </Grid>
 </Window>

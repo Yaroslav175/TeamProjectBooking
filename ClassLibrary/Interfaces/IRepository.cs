@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Interfaces
 {
-   public class IRepository 
+   public interface IRepository 
     {
-        
-        
+        bool Authorize(string login, string password);
+        void RegisterUser(User user);
+
 
     }
 }

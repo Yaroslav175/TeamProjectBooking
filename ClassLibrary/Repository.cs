@@ -1,4 +1,5 @@
 ﻿using ClassLibrary.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +19,23 @@ namespace ClassLibrary
             public List<User> Users { get; set; }
         }
         private GeneralData _generalData;
-        private User _authorizedUser;
+        public User _authorizedUser;
+
+        private const string DataFolder = "TeamProjectBooking2/ClassLibrary/Data";
+        private const string FileName = "ts.json";
+
+        public Repository()
+        {
+
+            _generalData = new GeneralData
+            {
+                Buildings = new List<HSEBuilding>(),
+                Rooms = new List<Room>(),
+                Users = new List<User>()
+
+            };
+           
+        }
 
         public void RegisterUser(User user)
         {
@@ -28,10 +45,10 @@ namespace ClassLibrary
         }
         public bool Authorize(string login, string password)
         {
-            var user = _generalData.Users.FirstOrDefault(u => u.Login == login && u.Password == GetHash(password));
+            var user = _generalData.Users.FirstOrDefault(u => u.Login == login && u.Password == Password.GetHash(password));
             if (user != null)
             {
-                user.Favourites = LoadUserFavourites(user.Id);
+                
                 _authorizedUser = user;
                 return true;
             }
@@ -52,48 +69,9 @@ namespace ClassLibrary
                 }
             }
         }
-        public static string GetHash(string password)
-        {
-            var md5 = MD5.Create();
-            var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(hash);
-        }
-
-        private List<Favourite> LoadUserFavourites(int userId)
-        {
-            try
-            {
-                using (var sr = new StreamReader(GetUserFavouritesPath(userId)))
-                {
-                    using (var jsonReader = new JsonTextReader(sr))
-                    {
-                        var serializer = new JsonSerializer();
-                        var favourites = serializer.Deserialize<List<Favourite>>(jsonReader);
-                        foreach (var f in favourites)
-                            f.Station = _generalData.Stations.First(st => st.Id == f.StationId);
-                        return favourites;
-                    }
-                }
-            }
-            catch
-            {
-                return new List<Favourite>();
-            }
-        }
-        public void SaveUserFavourites()
-        {
-            using (var sw = new StreamWriter(GetUserFavouritesPath(_authorizedUser.Id)))
-            {
-                using (var jsonWriter = new JsonTextWriter(sw))
-                {
-                    var serializer = new JsonSerializer();
-                    serializer.Serialize(jsonWriter, _authorizedUser.Favourites);
-                }
-            }
-        }
-        private string GetUserFavouritesPath(int userId) => Path.Combine(DataFolder, userId.ToString() + ".json");
-
-
+        
+        
+        
 
 
 

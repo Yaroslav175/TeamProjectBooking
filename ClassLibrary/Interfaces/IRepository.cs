@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Interfaces
 {
-   public class IRepository
+   public class IRepository 
     {
-
-
-
-
+        
+        
 
     }
 }

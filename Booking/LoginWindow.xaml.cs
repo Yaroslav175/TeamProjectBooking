@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ClassLibrary;
-
-
+using ClassLibrary.Interfaces;
+using System.Windows.Controls;
 
 namespace Booking
 {
@@ -23,6 +12,8 @@ namespace Booking
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IRepository _repository = Factory.Instance.GetRepository();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -38,9 +29,9 @@ namespace Booking
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)

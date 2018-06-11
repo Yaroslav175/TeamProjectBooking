@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Interfaces
 {
-   public interface IRepository
+   public interface IRepository 
     {
-        List<HSEBuilding> Buildings { get; }
+        bool Authorize(string login, string password);
+        void RegisterUser(User user);
+
+
     }
 }

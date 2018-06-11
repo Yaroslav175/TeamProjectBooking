@@ -54,18 +54,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="LoginWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="ShowDataWindow.xaml.cs">
+      <DependentUpon>ShowDataWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DataSelectWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="DataSelectWindow.xaml.cs">
+      <DependentUpon>DataSelectWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ShowDataWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

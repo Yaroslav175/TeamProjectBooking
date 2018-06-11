@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-   public class Favourite
+   public class DataViewModel
     {
-        public int Id { get; set; }
-        public int RoomId { get; set; }
+        public HSEBuilding BuildingAddress { get; set; }
+        public string Day { get; set; }
         public Room Room { get; set; }
+        
     }
 }

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Booking.ShowDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking"
+        mc:Ignorable="d"
+          Title="MainWindow" Height="700" Width="400">
+    <Grid>
+        <TextBlock Text="Floor" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="30"/>
+        <TextBlock Text="Free rooms" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="30"/>
+        <DataGrid Name="dataGridRooms" Grid.RowSpan="10" Grid.ColumnSpan="2" Margin="5" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Floor 1" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 2" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 3" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 4" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 5" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 6" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 7" Width="1*" Binding="{Binding Room.Number}"/>
+                <DataGridTextColumn Header="Floor 8" Width="1*" Binding="{Binding Room.Number}"/>
+            </DataGrid.Columns>
+
+           
+        </DataGrid>
+    </Grid>
+   </Window>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="Booking.DataSelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking"
+        mc:Ignorable="d"
+        Title="DataSelectWindow" Height="700" Width="400">
+    <StackPanel>
+        <!--Genaral data-->        
+        <TextBlock Text="Select general info" FontWeight="Black" Margin="5 10 0 10"/>
+        <TextBlock Text="Building address:" Margin="10 0 0 0" />
+        <ComboBox x:Name="ComboboxAddress" SelectionChanged="ComboboxAddress_SelectionChanged" Padding="3" Margin="5"/>
+        
+        <TextBlock Text="Day:" Margin="10 5 0 0"/>
+        <ComboBox x:Name="ComboboxDay" SelectionChanged="ComboboxDay_SelectionChanged" Padding="3" Margin="5"/>
+
+        <TextBlock Text="Room capacity:" Margin="10 5 0 4"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Name="ComputerCheckbox" Checked="Checkbox_Checked" Content="below 20" HorizontalAlignment="Center"/>
+            <CheckBox Name="ProjectorCheckbox" Checked="Checkbox_Checked" Content="20-40" Grid.Column="1" HorizontalAlignment="Center"/>
+            <CheckBox Name="SpeakersCheckbox" Checked="Checkbox_Checked" Content="40-80" Grid.Column="2" HorizontalAlignment="Center"/>
+            <CheckBox Name="MicCheckBox" Checked="Checkbox_Checked" Content="over 80" Grid.Column="3" HorizontalAlignment="Center"/>
+        </Grid>
+        <!--Additional data-->        
+        <TextBlock Text="Additional info" FontWeight="Black" Margin="5 15 0 0"/>
+        <TextBlock Text="Requirements:" Margin="10 5 0 5"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0 0 10 0">
+                <CheckBox Name="Comp" Content="Computer"/>
+                <CheckBox Name="Proj" Content="Projector"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <CheckBox Name="Speakers" Content="Loudspeakers"/>
+                <CheckBox Name="Mic" Content="Microphone"/>
+
+            </StackPanel>
+        </Grid>
+        <Button Name="Results" Click="Results_Click" Width="100" Height="25" Margin="20">See results</Button>
+    </StackPanel>
+</Window>

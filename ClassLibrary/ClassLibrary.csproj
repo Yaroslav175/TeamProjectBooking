@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataViewModel.cs" />
+    <Compile Include="Factory.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Models\Favourite.cs" />
+    <Compile Include="Models\Floor.cs" />
     <Compile Include="Models\HSEBuilding.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

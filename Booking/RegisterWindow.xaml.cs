@@ -22,7 +22,7 @@ namespace Booking
     public partial class RegisterWindow : Window
     {
 
-        IRepository _repo = Factory.Instance.GetRepository();
+        IRepository _repository = Factory.Instance.GetRepository();
 
         public event Action RegistrationFinished;
 
@@ -56,7 +56,7 @@ namespace Booking
             };
             try
             {
-                _repo.RegisterUser(user);
+                _repository.RegisterUser(user);
                 RegistrationFinished?.Invoke();
                 Close();
             }

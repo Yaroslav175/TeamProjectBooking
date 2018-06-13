@@ -34,8 +34,8 @@ namespace Booking
             {
                 if (_repository.Authorize(textBoxLogin.Text, passwordBox.Password))
                 {
-                    var mainWindow = new MainWindow();
-                    mainWindow.Show();
+                    var availablesWindow = new AvailableAudiencesWindow();
+                    availablesWindow.Show();
                     Close();
                 }
                 else
